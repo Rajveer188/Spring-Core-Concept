@@ -8,6 +8,7 @@ import static java.lang.System.out;
 public class First {
     //constructor
     public First(){
+        out.println("first class object");
     }
     //method
     public void hello(){
