@@ -1,6 +1,8 @@
 package com.capgemint_training.springconcept;
 
 import com.capgemint_training.springconcept.component.First;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,15 +11,16 @@ import static java.lang.System.out;
 
 @SpringBootApplication
 public class SpringConceptApplication {
+	//get instance of logger
+	public static final Logger logger = LoggerFactory.getLogger(SpringConceptApplication.class);
 
 	public static void main(String[] args) {
-		out.println("Welcome to spring concepts");
+		logger.debug("Welcom to UC-2");
 		//start spring application
 		ApplicationContext applicationContext = (ApplicationContext) SpringApplication.run(SpringConceptApplication.class, args);
 
-		//get object of First class
-		First first =  applicationContext.getBean(First.class);
-		//call first class method
-		first.hello();
+		logger.debug("Checking context : {}", applicationContext.getBean(First.class));
+		logger.debug("\nexample using @Autowire annotation on property");
+
 	}
 }
